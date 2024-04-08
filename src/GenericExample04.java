@@ -16,7 +16,7 @@ public class GenericExample04 {
         System.out.println(GenericExample04.sortByIDAndExtractNames(products));
     }
 
-     static <T extends HasId & HasName> List<String> sortByIDAndExtractNames(List<T> products) {
+    static <T extends HasId & HasName> List<String> sortByIDAndExtractNames(List<T> products) {
         return products.stream().sorted(Comparator.comparing(HasId::id)).map(HasName::name).collect(Collectors.toList());
     }
 }

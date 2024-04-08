@@ -15,10 +15,20 @@ public class GenericExample05 {
         // A List that can contain any kind of object of type Animal
         // List<Animal> animals = dogs; // Error ! Generic types are invariant
 
+        // If generics were covariant
+        // meaning If List of Dogs is List of Animals
+        // Then compiler would allows us to do
+        // Cat cat = new Cat("missy");
+        // animals.add(cat);
+        // Since Cat is an animal, we should be able to add Cat in list of animals
+        // Which is not possible with java, animals is a list of dogs.
+
+        // ----------- WildCards ---------------- //
         // A List of objects of a particular, but unknown type that extends Animal
         // This list can only contain object of that particular type
         List<? extends Animal> animals = dogs; // OK
-        // This also doesn't work because animals is list of Dog type
+        // These both don't work because animals is list of Dog type
+        // animals.add(new Cat("Suzzy"));
         // animals.add(new Dog("Suzzy"));
 
     }
